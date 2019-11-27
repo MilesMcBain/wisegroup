@@ -1,0 +1,4 @@
+^\./build\.R$
+^\./group_aware_functions\.R$
+^\./make\.R$
+^LICENSE\.md$
