@@ -17,4 +17,8 @@ RoxygenNote: 6.1.1
 Imports: 
     glue,
     dplyr,
-    tidyr
+    tidyr,
+    magrittr
+Suggests: 
+    testthat (>= 2.1.0),
+    tibble
