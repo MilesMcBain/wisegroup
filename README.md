@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.org/milesmcbain/wisegroup.svg?branch=master)](https://travis-ci.org/milesmcbain/wisegroup)
 <!-- badges: end -->
 
 > Now I am become death, destroyer of groups….
