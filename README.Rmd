@@ -78,7 +78,7 @@ and with mutate:
 ```{r}
 flights %>%
   group_by(year, month, day) %>%
-  mutate...(day_dep_variance = var(dep_delay)) %>%
+  mutate...(day_dep_variance = var(dep_delay, na.rm = TRUE)) %>%
   summarise(max_var = max(day_dep_variance))
 
 ```

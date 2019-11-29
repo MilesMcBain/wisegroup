@@ -37,31 +37,13 @@ with `conflicted`, so that the masking is always made explicit like so:
 library(conflicted)
 library(wisegroup)
 library(tidyverse)
-#> ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──
-#> ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
-#> ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-#> ✔ tidyr   0.8.3     ✔ stringr 1.4.0
-#> ✔ readr   1.3.1     ✔ forcats 0.4.0
-#> ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
-#> ✖ tidyr::fill()          masks wisegroup::fill()
-#> ✖ dplyr::filter()        masks stats::filter()
-#> ✖ purrr::is_null()       masks testthat::is_null()
-#> ✖ dplyr::lag()           masks stats::lag()
-#> ✖ dplyr::matches()       masks testthat::matches()
-#> ✖ dplyr::mutate()        masks wisegroup::mutate()
-#> ✖ dplyr::mutate_all()    masks wisegroup::mutate_all()
-#> ✖ dplyr::mutate_at()     masks wisegroup::mutate_at()
-#> ✖ dplyr::mutate_if()     masks wisegroup::mutate_if()
-#> ✖ dplyr::summarise()     masks wisegroup::summarise()
-#> ✖ dplyr::summarise_all() masks wisegroup::summarise_all()
-#> ✖ dplyr::summarise_at()  masks wisegroup::summarise_at()
-#> ✖ dplyr::summarize()     masks wisegroup::summarize()
-#> ✖ dplyr::summarize_all() masks wisegroup::summarize_all()
 library(nycflights13)
 
 conflict_prefer("summarise", "wisegroup")
+#> [conflicted] Removing existing preference
 #> [conflicted] Will prefer wisegroup::summarise over any other package
 conflict_prefer("mutate", "wisegroup")
+#> [conflicted] Removing existing preference
 #> [conflicted] Will prefer wisegroup::mutate over any other package
 ```
 
@@ -76,7 +58,6 @@ flights %>%
   group_by(year, month, day) %>%
   summarise(max_delay = max(dep_delay, na.rm = TRUE))
 #> # A tibble: 365 x 4
-#> # Groups:   year, month [12]
 #>     year month   day max_delay
 #>    <int> <int> <int>     <dbl>
 #>  1  2013     1     1       853
@@ -121,22 +102,21 @@ and with mutate:
 ``` r
 flights %>%
   group_by(year, month, day) %>%
-  mutate...(day_dep_variance = var(dep_delay)) %>%
+  mutate...(day_dep_variance = var(dep_delay, na.rm = TRUE)) %>%
   summarise(max_var = max(day_dep_variance))
 #> # A tibble: 365 x 4
-#> # Groups:   year, month [12]
 #>     year month   day max_var
 #>    <int> <int> <int>   <dbl>
-#>  1  2013     1     1      NA
-#>  2  2013     1     2      NA
-#>  3  2013     1     3      NA
-#>  4  2013     1     4      NA
-#>  5  2013     1     5      NA
-#>  6  2013     1     6      NA
-#>  7  2013     1     7      NA
-#>  8  2013     1     8      NA
-#>  9  2013     1     9      NA
-#> 10  2013     1    10      NA
+#>  1  2013     1     1   2049.
+#>  2  2013     1     2   1384.
+#>  3  2013     1     3    990.
+#>  4  2013     1     4    769.
+#>  5  2013     1     5    662.
+#>  6  2013     1     6    537.
+#>  7  2013     1     7    733.
+#>  8  2013     1     8    374.
+#>  9  2013     1     9   2197.
+#> 10  2013     1    10   1924.
 #> # … with 355 more rows
 ```
 
