@@ -46,8 +46,8 @@ and t that the masking is made explicit like so:
 ```{r}
 
 library(conflicted)
-library(tidyverse)
 library(wisegroup)
+library(tidyverse)
 library(nycflights13)
 
 conflict_prefer("summarise", "wisegroup")
