@@ -30,7 +30,7 @@ This packages contains wrappers for common group-aware functions that either:
 
 ## Installation
 
-```{r}
+```{r, eval = FALSE}
 remotes::install_github("milesmcbain/wisegroup")
 ```
 
