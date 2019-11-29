@@ -3,4 +3,5 @@
 ^\./make\.R$
 ^LICENSE\.md$
 ^README\.Rmd$
+^.README\.html$
 ^\.travis\.yml$
