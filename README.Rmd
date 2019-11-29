@@ -39,14 +39,15 @@ remotes::install_github("milesmcbain/wisegroup")
 
 `wisegroup` is designed to mask `tidyverse` functions in your global
 environment. It is recommended that you use this package in conjunction with
-`conflicted`, so that the masking is always made explicit like so:
+`conflicted`. This means that the order of the `library` calls will not matter,
+and t that the masking is made explicit like so:
 
 
 ```{r}
 
 library(conflicted)
-library(wisegroup)
 library(tidyverse)
+library(wisegroup)
 library(nycflights13)
 
 conflict_prefer("summarise", "wisegroup")
