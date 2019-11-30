@@ -19,9 +19,9 @@ Ungrouping wrapper for summarise_all
 The wisegroup package provides a wrapper for summarise_all that always returns
 ungrouped data. This avoids mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::summarise_all()].
+For original documentation see \code{\link[dplyr:summarise_all]{dplyr::summarise_all()}}.
 
-Use [summarise_all...()] to retain groups as per `dplyr::summarise_all`, whilst
+Use \code{\link[=summarise_all...]{summarise_all...()}} to retain groups as per \code{dplyr::summarise_all}, whilst
 signalling this in your code.
 }
 \seealso{

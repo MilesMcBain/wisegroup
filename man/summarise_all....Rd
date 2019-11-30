@@ -20,9 +20,9 @@ The wisegroup package provides a wrapper for summarise_all that behaves as per t
 original with the added bonus of signalling returned data could be grouped in source code.
 This helps avoid mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::summarise_all()].
+For original documentation see \code{\link[dplyr:summarise_all]{dplyr::summarise_all()}}.
 
-Use [wisegroup::summarise_all()] to automatically remove groups after applying dplyr::summarise_all.
+Use \code{\link[wisegroup:summarise_all]{wisegroup::summarise_all()}} to automatically remove groups after applying dplyr::summarise_all.
 }
 \seealso{
 dplyr::summarise_all, summarise_all...

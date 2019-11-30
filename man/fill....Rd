@@ -20,9 +20,9 @@ The wisegroup package provides a wrapper for fill that behaves as per the
 original with the added bonus of signalling returned data could be grouped in source code.
 This helps avoid mistakes associated with forgetting to call ungroup().
 
-For original documentation see [tidyr::fill()].
+For original documentation see \code{\link[tidyr:fill]{tidyr::fill()}}.
 
-Use [wisegroup::fill()] to automatically remove groups after applying tidyr::fill.
+Use \code{\link[wisegroup:fill]{wisegroup::fill()}} to automatically remove groups after applying tidyr::fill.
 }
 \seealso{
 tidyr::fill, fill...

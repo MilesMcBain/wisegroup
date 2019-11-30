@@ -19,9 +19,9 @@ Ungrouping wrapper for fill
 The wisegroup package provides a wrapper for fill that always returns
 ungrouped data. This avoids mistakes associated with forgetting to call ungroup().
 
-For original documentation see [tidyr::fill()].
+For original documentation see \code{\link[tidyr:fill]{tidyr::fill()}}.
 
-Use [fill...()] to retain groups as per `tidyr::fill`, whilst
+Use \code{\link[=fill...]{fill...()}} to retain groups as per \code{tidyr::fill}, whilst
 signalling this in your code.
 }
 \seealso{

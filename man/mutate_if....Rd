@@ -20,9 +20,9 @@ The wisegroup package provides a wrapper for mutate_if that behaves as per the
 original with the added bonus of signalling returned data could be grouped in source code.
 This helps avoid mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate_if()].
+For original documentation see \code{\link[dplyr:mutate_if]{dplyr::mutate_if()}}.
 
-Use [wisegroup::mutate_if()] to automatically remove groups after applying dplyr::mutate_if.
+Use \code{\link[wisegroup:mutate_if]{wisegroup::mutate_if()}} to automatically remove groups after applying dplyr::mutate_if.
 }
 \seealso{
 dplyr::mutate_if, mutate_if...

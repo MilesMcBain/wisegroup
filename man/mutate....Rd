@@ -20,9 +20,9 @@ The wisegroup package provides a wrapper for mutate that behaves as per the
 original with the added bonus of signalling returned data could be grouped in source code.
 This helps avoid mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate()].
+For original documentation see \code{\link[dplyr:mutate]{dplyr::mutate()}}.
 
-Use [wisegroup::mutate()] to automatically remove groups after applying dplyr::mutate.
+Use \code{\link[wisegroup:mutate]{wisegroup::mutate()}} to automatically remove groups after applying dplyr::mutate.
 }
 \seealso{
 dplyr::mutate, mutate...

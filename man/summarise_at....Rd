@@ -20,9 +20,9 @@ The wisegroup package provides a wrapper for summarise_at that behaves as per th
 original with the added bonus of signalling returned data could be grouped in source code.
 This helps avoid mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::summarise_at()].
+For original documentation see \code{\link[dplyr:summarise_at]{dplyr::summarise_at()}}.
 
-Use [wisegroup::summarise_at()] to automatically remove groups after applying dplyr::summarise_at.
+Use \code{\link[wisegroup:summarise_at]{wisegroup::summarise_at()}} to automatically remove groups after applying dplyr::summarise_at.
 }
 \seealso{
 dplyr::summarise_at, summarise_at...

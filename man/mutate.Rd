@@ -19,9 +19,9 @@ Ungrouping wrapper for mutate
 The wisegroup package provides a wrapper for mutate that always returns
 ungrouped data. This avoids mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate()].
+For original documentation see \code{\link[dplyr:mutate]{dplyr::mutate()}}.
 
-Use [mutate...()] to retain groups as per `dplyr::mutate`, whilst
+Use \code{\link[=mutate...]{mutate...()}} to retain groups as per \code{dplyr::mutate}, whilst
 signalling this in your code.
 }
 \seealso{

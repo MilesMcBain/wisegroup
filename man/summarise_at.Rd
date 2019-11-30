@@ -19,9 +19,9 @@ Ungrouping wrapper for summarise_at
 The wisegroup package provides a wrapper for summarise_at that always returns
 ungrouped data. This avoids mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::summarise_at()].
+For original documentation see \code{\link[dplyr:summarise_at]{dplyr::summarise_at()}}.
 
-Use [summarise_at...()] to retain groups as per `dplyr::summarise_at`, whilst
+Use \code{\link[=summarise_at...]{summarise_at...()}} to retain groups as per \code{dplyr::summarise_at}, whilst
 signalling this in your code.
 }
 \seealso{

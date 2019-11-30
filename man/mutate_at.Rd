@@ -19,9 +19,9 @@ Ungrouping wrapper for mutate_at
 The wisegroup package provides a wrapper for mutate_at that always returns
 ungrouped data. This avoids mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate_at()].
+For original documentation see \code{\link[dplyr:mutate_at]{dplyr::mutate_at()}}.
 
-Use [mutate_at...()] to retain groups as per `dplyr::mutate_at`, whilst
+Use \code{\link[=mutate_at...]{mutate_at...()}} to retain groups as per \code{dplyr::mutate_at}, whilst
 signalling this in your code.
 }
 \seealso{

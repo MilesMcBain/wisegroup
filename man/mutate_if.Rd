@@ -19,9 +19,9 @@ Ungrouping wrapper for mutate_if
 The wisegroup package provides a wrapper for mutate_if that always returns
 ungrouped data. This avoids mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate_if()].
+For original documentation see \code{\link[dplyr:mutate_if]{dplyr::mutate_if()}}.
 
-Use [mutate_if...()] to retain groups as per `dplyr::mutate_if`, whilst
+Use \code{\link[=mutate_if...]{mutate_if...()}} to retain groups as per \code{dplyr::mutate_if}, whilst
 signalling this in your code.
 }
 \seealso{

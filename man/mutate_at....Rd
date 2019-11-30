@@ -20,9 +20,9 @@ The wisegroup package provides a wrapper for mutate_at that behaves as per the
 original with the added bonus of signalling returned data could be grouped in source code.
 This helps avoid mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate_at()].
+For original documentation see \code{\link[dplyr:mutate_at]{dplyr::mutate_at()}}.
 
-Use [wisegroup::mutate_at()] to automatically remove groups after applying dplyr::mutate_at.
+Use \code{\link[wisegroup:mutate_at]{wisegroup::mutate_at()}} to automatically remove groups after applying dplyr::mutate_at.
 }
 \seealso{
 dplyr::mutate_at, mutate_at...

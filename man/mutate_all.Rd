@@ -19,9 +19,9 @@ Ungrouping wrapper for mutate_all
 The wisegroup package provides a wrapper for mutate_all that always returns
 ungrouped data. This avoids mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate_all()].
+For original documentation see \code{\link[dplyr:mutate_all]{dplyr::mutate_all()}}.
 
-Use [mutate_all...()] to retain groups as per `dplyr::mutate_all`, whilst
+Use \code{\link[=mutate_all...]{mutate_all...()}} to retain groups as per \code{dplyr::mutate_all}, whilst
 signalling this in your code.
 }
 \seealso{

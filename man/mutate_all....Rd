@@ -20,9 +20,9 @@ The wisegroup package provides a wrapper for mutate_all that behaves as per the
 original with the added bonus of signalling returned data could be grouped in source code.
 This helps avoid mistakes associated with forgetting to call ungroup().
 
-For original documentation see [dplyr::mutate_all()].
+For original documentation see \code{\link[dplyr:mutate_all]{dplyr::mutate_all()}}.
 
-Use [wisegroup::mutate_all()] to automatically remove groups after applying dplyr::mutate_all.
+Use \code{\link[wisegroup:mutate_all]{wisegroup::mutate_all()}} to automatically remove groups after applying dplyr::mutate_all.
 }
 \seealso{
 dplyr::mutate_all, mutate_all...
