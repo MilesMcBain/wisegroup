@@ -41,7 +41,7 @@ library(conflicted)
 library(wisegroup)
 library(tidyverse)
 #> ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──
-#> ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+#> ✔ ggplot2 3.2.0     ✔ purrr   0.3.3
 #> ✔ tibble  2.1.3     ✔ dplyr   0.8.3
 #> ✔ tidyr   0.8.3     ✔ stringr 1.4.0
 #> ✔ readr   1.3.1     ✔ forcats 0.4.0
@@ -141,7 +141,13 @@ flights %>%
 
 ## Fun Fact
 
-This package generates it’s own source and documentation, so that adding
-new wrappers is low effort. To generate new wrappers, an entry is added
-to “./group\_aware\_functions.R” and “./make.R” is run. The goal of
-wisegroup is to …
+This package generates its own source and documentation, so that adding
+new wrappers is low effort.
+
+To generate new wrappers, an entry is added to
+“./group\_aware\_functions.R” and “./make.R” is run.
+
+## Contributing
+
+If there’s a function you think should be included make a PR for
+“./group\_aware\_functions.R”\!

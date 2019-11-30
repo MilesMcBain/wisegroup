@@ -86,7 +86,12 @@ flights %>%
 ```
 ## Fun Fact
 
-This package generates it's own source and documentation, so that adding new
-wrappers is low effort. To generate new wrappers, an entry is added to
+This package generates its own source and documentation, so that adding new
+wrappers is low effort. 
+
+To generate new wrappers, an entry is added to
 "./group_aware_functions.R" and "./make.R" is run.
-The goal of wisegroup is to ...
+
+## Contributing
+
+If there's a function you think should be included make a PR for "./group_aware_functions.R"!
