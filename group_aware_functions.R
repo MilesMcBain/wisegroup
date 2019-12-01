@@ -1,9 +1,18 @@
 GROUP_AWARE_FUNCTIONS <-
   list(
+    "dplyr::count",
+    "dplyr::add_count",
+    "dplyr::tally",
+    "dplyr::add_tally",
     "dplyr::mutate",
     "dplyr::mutate_all",
     "dplyr::mutate_at",
     "dplyr::mutate_if",
+    "dplyr::transmute",
+    "dplyr::transmute_all",
+    "dplyr::transmute_at",
+    "dplyr::transmute_if",
+    "dplyr::slice",
     "dplyr::summarise",
     "dplyr::summarise_at",
     "dplyr::summarise_all",
@@ -14,5 +23,6 @@ GROUP_AWARE_FUNCTIONS <-
     "dplyr::summarize_if",
     "dplyr::sample_n",
     "dplyr::sample_frac",
-    "tidyr::fill"
+    "tidyr::fill",
+    "tidyr::nest"
   )
