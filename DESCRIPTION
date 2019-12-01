@@ -1,15 +1,22 @@
 Package: wisegroup
 Title: Safe grouping wrappers for group-aware tidy functions
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
-    person(given = "Miles",
+    c(person(given = "Miles",
            family = "McBain",
            role = c("aut", "cre"),
            email = "miles.mcbain@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Provides wrapping functions that either automatically ungroup the
-             returned data, or explicity indicate that the returned data could
-             be grouped in source code. This helps avoid errors relating to forgetting             call dplyr's ungroup().
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+      person(given = "RStudio",
+             role = "cph"),
+      person(given = "Hadley",
+             family = "Wickham",
+             role = c("cph"),
+             email = "hadley@rstudio.com"))
+Description: Group-safe versions of tidyverse functions that either
+             automatically ungroup the returned data, or explicity indicate that
+             the returned data could be grouped in source code. This helps avoid
+             errors relating to forgetting call dplyr's ungroup().
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

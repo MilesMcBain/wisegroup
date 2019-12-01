@@ -1,3 +1,30 @@
+## This file contains code taken from dplyr. The license and copyright is:
+
+## The MIT License (MIT)
+## =====================
+
+## Copyright © 2013-2019 RStudio and others.
+
+## Permission is hereby granted, free of charge, to any person
+## obtaining a copy of this software and associated documentation
+## files (the “Software”), to deal in the Software without
+## restriction, including without limitation the rights to use,
+## copy, modify, merge, publish, distribute, sublicense, and/or sell
+## copies of the Software, and to permit persons to whom the
+## Software is furnished to do so, subject to the following
+## conditions:
+
+## The above copyright notice and this permission notice shall be
+## included in all copies or substantial portions of the Software.
+
+## THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+## EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+## OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+## NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+## HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+## WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+## FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+## OTHER DEALINGS IN THE SOFTWARE.
 
 context("Mutate...")
 
@@ -28,4 +55,35 @@ test_that("repeated outputs applied progressively (grouped_df)", {
   expect_equal(ncol(out), 3)
 
   expect_equal(out$z, c(3L, 3L))
+})
+
+## Window fn testing
+
+test_that("desc is correctly handled by window functions", {
+  df <- data.frame(
+    x = 1:10, y = seq(1, 10, by = 1),
+    g = rep(c(1, 2), each = 5), s = c(letters[1:3], LETTERS[1:5], letters[4:5])
+  )
+
+  expect_equal(mutate...(df, rank = min_rank(desc(x)))$rank, 10:1)
+  expect_equal(mutate...(dplyr::group_by(df, g), rank = min_rank(desc(x)))$rank, rep(5:1, 2))
+
+  expect_equal(mutate...(df, rank = row_number(desc(x)))$rank, 10:1)
+  expect_equal(mutate...(dplyr::group_by(df, g), rank = dplyr::row_number(desc(x)))$rank, rep(5:1, 2))
+
+  # Test character vector sorting
+  charvec_sort_test <- function(df) {
+    expect_equal(
+      mutate...(df, rank = row_number(desc(s)))$rank,
+      mutate...(df, rank = dplyr::row_number(desc(s)))$rank
+    )
+    expect_equal(
+      mutate...(group_by(df, g), rank = row_number(desc(s)))$rank,
+      mutate...(group_by(df, g), rank = dplyr::row_number(desc(s)))$rank
+    )
+  }
+
+  # Test against both the local, and the C locale for collation
+  charvec_sort_test(df)
+  withr::with_collate("C", charvec_sort_test(df))
 })
