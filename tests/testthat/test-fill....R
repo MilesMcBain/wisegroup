@@ -43,7 +43,7 @@ test_that("missings filled up for each vector", {
 })
 
 test_that("fill respects grouping", {
-  df <- tibble(x = c(1, 1, 2), y = c(1, NA, NA))
+  df <- tibble::tibble(x = c(1, 1, 2), y = c(1, NA, NA))
   out <- df %>% dplyr::group_by(x) %>% fill...(y)
   expect_equal(out$y, c(1, 1, NA))
 })

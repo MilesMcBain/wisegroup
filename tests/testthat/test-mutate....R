@@ -65,21 +65,25 @@ test_that("desc is correctly handled by window functions", {
     g = rep(c(1, 2), each = 5), s = c(letters[1:3], LETTERS[1:5], letters[4:5])
   )
 
-  expect_equal(mutate...(df, rank = min_rank(desc(x)))$rank, 10:1)
-  expect_equal(mutate...(dplyr::group_by(df, g), rank = min_rank(desc(x)))$rank, rep(5:1, 2))
+  expect_equal(mutate...(df,
+                         rank = dplyr::min_rank(dplyr::desc(x)))$rank, 10:1)
+  expect_equal(mutate...(dplyr::group_by(df, g),
+                         rank = dplyr::min_rank(dplyr::desc(x)))$rank, rep(5:1, 2))
 
-  expect_equal(mutate...(df, rank = row_number(desc(x)))$rank, 10:1)
-  expect_equal(mutate...(dplyr::group_by(df, g), rank = dplyr::row_number(desc(x)))$rank, rep(5:1, 2))
+  expect_equal(mutate...(df,
+                         rank = dplyr::row_number(dplyr::desc(x)))$rank, 10:1)
+  expect_equal(mutate...(dplyr::group_by(df, g),
+                         rank = dplyr::row_number(dplyr::desc(x)))$rank, rep(5:1, 2))
 
   # Test character vector sorting
   charvec_sort_test <- function(df) {
     expect_equal(
-      mutate...(df, rank = row_number(desc(s)))$rank,
-      mutate...(df, rank = dplyr::row_number(desc(s)))$rank
+      mutate...(df, rank = dplyr::row_number(dplyr::desc(s)))$rank,
+      mutate...(df, rank = dplyr::row_number(dplyr::desc(s)))$rank
     )
     expect_equal(
-      mutate...(group_by(df, g), rank = row_number(desc(s)))$rank,
-      mutate...(group_by(df, g), rank = dplyr::row_number(desc(s)))$rank
+      mutate...(dplyr::group_by(df, g), rank = dplyr::row_number(dplyr::desc(s)))$rank,
+      mutate...(dplyr::group_by(df, g), rank = dplyr::row_number(dplyr::desc(s)))$rank
     )
   }
 

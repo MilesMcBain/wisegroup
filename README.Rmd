@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 Never be burned by forgetting to `ungroup()` again.
 
-This packages contains wrappers for common group-aware functions that either:
+This packages contains alternative versions of common group-aware `tidyverse` functions that either:
 
   * automatically ungroup the returned data OR
   * allow the developer to make explicit that groups are being carried forward, signalling the potential for group related errors with a '...' variant of the orignal function, e.g. `mutate...`, `summarise...` etc.
@@ -40,7 +40,7 @@ remotes::install_github("milesmcbain/wisegroup")
 `wisegroup` is designed to mask `tidyverse` functions in your global
 environment. It is recommended that you use this package in conjunction with
 `conflicted`. This means that the order of the `library` calls will not matter,
-and t that the masking is made explicit like so:
+and that the masking is made explicit like so:
 
 
 ```{r}
@@ -61,29 +61,43 @@ So now you have automatically dropped groups after summarising over
 multiple grouping columns:
 
 ```{r}
-flights %>%
+
+grouped_no_more <-
+  flights %>%
   group_by(year, month, day) %>%
   summarise(max_delay = max(dep_delay, na.rm = TRUE))
+
+grouped_no_more
+
 ```
 
 You indicate the grouping is sticking around with the `...` suffix
 
 ```{r}
 
-flights %>%
+still_grouped <-
+  flights %>%
   group_by(year, month, day) %>%
   summarise...(max_delay = max(dep_delay, na.rm = TRUE))
+
+still_grouped
+
 ```
 
 and with mutate:
 
 ```{r}
-flights %>%
+
+summarised_over_mutates_groups <-
+  flights %>%
   group_by(year, month, day) %>%
   mutate...(day_dep_variance = var(dep_delay, na.rm = TRUE)) %>%
   summarise(max_var = max(day_dep_variance))
 
+summarised_over_mutates_groups
+
 ```
+
 ## Fun Fact
 
 This package generates its own source and documentation, so that adding new

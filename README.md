@@ -13,8 +13,8 @@ status](https://travis-ci.org/milesmcbain/wisegroup.svg?branch=master)](https://
 
 Never be burned by forgetting to `ungroup()` again.
 
-This packages contains wrappers for common group-aware functions that
-either:
+This packages contains alternative versions of common group-aware
+`tidyverse` functions that either:
 
   - automatically ungroup the returned data OR
   - allow the developer to make explicit that groups are being carried
@@ -33,36 +33,20 @@ remotes::install_github("milesmcbain/wisegroup")
 `wisegroup` is designed to mask `tidyverse` functions in your global
 environment. It is recommended that you use this package in conjunction
 with `conflicted`. This means that the order of the `library` calls will
-not matter, and t that the masking is made explicit like so:
+not matter, and that the masking is made explicit like so:
 
 ``` r
 
 library(conflicted)
 library(wisegroup)
 library(tidyverse)
-#> ── Attaching packages ────────────────────────────────── tidyverse 1.2.1 ──
-#> ✔ ggplot2 3.2.0     ✔ purrr   0.3.3
-#> ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-#> ✔ tidyr   0.8.3     ✔ stringr 1.4.0
-#> ✔ readr   1.3.1     ✔ forcats 0.4.0
-#> ── Conflicts ───────────────────────────────────── tidyverse_conflicts() ──
-#> ✖ tidyr::fill()          masks wisegroup::fill()
-#> ✖ dplyr::filter()        masks stats::filter()
-#> ✖ dplyr::lag()           masks stats::lag()
-#> ✖ dplyr::mutate()        masks wisegroup::mutate()
-#> ✖ dplyr::mutate_all()    masks wisegroup::mutate_all()
-#> ✖ dplyr::mutate_at()     masks wisegroup::mutate_at()
-#> ✖ dplyr::mutate_if()     masks wisegroup::mutate_if()
-#> ✖ dplyr::summarise()     masks wisegroup::summarise()
-#> ✖ dplyr::summarise_all() masks wisegroup::summarise_all()
-#> ✖ dplyr::summarise_at()  masks wisegroup::summarise_at()
-#> ✖ dplyr::summarize()     masks wisegroup::summarize()
-#> ✖ dplyr::summarize_all() masks wisegroup::summarize_all()
 library(nycflights13)
 
 conflict_prefer("summarise", "wisegroup")
+#> [conflicted] Removing existing preference
 #> [conflicted] Will prefer wisegroup::summarise over any other package
 conflict_prefer("mutate", "wisegroup")
+#> [conflicted] Removing existing preference
 #> [conflicted] Will prefer wisegroup::mutate over any other package
 ```
 
@@ -73,9 +57,13 @@ So now you have automatically dropped groups after summarising over
 multiple grouping columns:
 
 ``` r
-flights %>%
+
+grouped_no_more <-
+  flights %>%
   group_by(year, month, day) %>%
   summarise(max_delay = max(dep_delay, na.rm = TRUE))
+
+grouped_no_more
 #> # A tibble: 365 x 4
 #>     year month   day max_delay
 #>    <int> <int> <int>     <dbl>
@@ -96,9 +84,12 @@ You indicate the grouping is sticking around with the `...` suffix
 
 ``` r
 
-flights %>%
+still_grouped <-
+  flights %>%
   group_by(year, month, day) %>%
   summarise...(max_delay = max(dep_delay, na.rm = TRUE))
+
+still_grouped
 #> # A tibble: 365 x 4
 #> # Groups:   year, month [12]
 #>     year month   day max_delay
@@ -119,10 +110,14 @@ flights %>%
 and with mutate:
 
 ``` r
-flights %>%
+
+summarised_over_mutates_groups <-
+  flights %>%
   group_by(year, month, day) %>%
   mutate...(day_dep_variance = var(dep_delay, na.rm = TRUE)) %>%
   summarise(max_var = max(day_dep_variance))
+
+summarised_over_mutates_groups
 #> # A tibble: 365 x 4
 #>     year month   day max_var
 #>    <int> <int> <int>   <dbl>

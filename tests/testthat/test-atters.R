@@ -41,8 +41,8 @@ test_that("funs found in current environment", {
 test_that("can use character vectors", {
   df <- data.frame(x = 1:3)
 
-  expect_equal(summarise_all(df, "mean"), summarise_all(df, funs(mean)))
-  expect_equal(mutate_all(df, list(mean = "mean")), mutate_all(df, funs(mean = mean)))
+  expect_equal(summarise_all(df, "mean"), summarise_all(df, dplyr::funs(mean)))
+  expect_equal(mutate_all(df, list(mean = "mean")), mutate_all(df, dplyr::funs(mean = mean)))
 
   expect_equal(summarise_all(df, "mean"), summarise_all(df, list(mean)))
   expect_equal(mutate_all(df, list(mean = "mean")), mutate_all(df, list(mean = mean)))
@@ -51,8 +51,8 @@ test_that("can use character vectors", {
 test_that("can use bare functions", {
   df <- data.frame(x = 1:3)
 
-  expect_equal(summarise_all(df, mean), summarise_all(df, funs(mean)))
-  expect_equal(mutate_all(df, mean), mutate_all(df, funs(mean)))
+  expect_equal(summarise_all(df, mean), summarise_all(df, dplyr::funs(mean)))
+  expect_equal(mutate_all(df, mean), mutate_all(df, dplyr::funs(mean)))
 
   expect_equal(summarise_all(df, mean), summarise_all(df, list(mean)))
   expect_equal(mutate_all(df, mean), mutate_all(df, list(mean)))

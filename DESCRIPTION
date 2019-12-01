@@ -28,5 +28,6 @@ Imports:
     magrittr
 Suggests: 
     testthat (>= 2.1.0),
-    tibble
+    tibble,
+    withr
 Roxygen: list(markdown = TRUE)
