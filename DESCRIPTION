@@ -3,10 +3,14 @@ Title: Safe grouping wrappers for group-aware tidy functions
 Version: 0.0.1
 Authors@R: 
     c(person(given = "Miles",
-           family = "McBain",
-           role = c("aut", "cre"),
-           email = "miles.mcbain@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID")),
+             family = "McBain",
+             role = c("aut", "cre"),
+             email = "miles.mcbain@gmail.com",
+             comment = c(ORCID = "0000-0003-2865-2548")),
+      person(given = "Antoine",
+             family =  "Fabri",
+             role = "ctb",
+             email = "antoine.fabri@gmail.com"),
       person(given = "RStudio",
              role = "cph"),
       person(given = "Hadley",
