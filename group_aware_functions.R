@@ -23,6 +23,5 @@ GROUP_AWARE_FUNCTIONS <-
     "dplyr::summarize_if",
     "dplyr::sample_n",
     "dplyr::sample_frac",
-    "tidyr::fill",
-    "tidyr::nest"
+    "tidyr::fill"
   )
